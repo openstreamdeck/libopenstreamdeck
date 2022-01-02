@@ -8,7 +8,10 @@ set(CMAKE_CXX_STANDARD 20)
 
 # Configure dependencies using conan.
 # You must install conan and run in terminal: conan install --build=missing .
-include(conanbuildinfo.cmake)
+include(conanbuildinfo OPTIONAL RESULT_VARIABLE include_conan_result)
+if (NOT include_conan_result)
+    include(conanbuildinfo.cmake)
+endif ()
 conan_basic_setup()
 
 add_subdirectory(openstreamdeck)

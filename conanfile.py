@@ -18,11 +18,14 @@ class LibOpenStreamDeckConan(ConanFile):
     default_options = {"shared": False, "fPIC": True}
 
     # Sources are located in the same place as this recipe, copy them to the recipe
-    exports_sources = "CMakeLists.txt", "conanbuildinfo.cmake", "openstreamdeck/**"
+    exports_sources = "CMakeLists.txt", "openstreamdeck/**"
 
     def config_options(self):
         if self.settings.os == "Windows":
             del self.options.fPIC
+
+    def requirements(self):
+        self.requires("boost/1.78.0")
 
     def layout(self):
         cmake_layout(self)

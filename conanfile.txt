@@ -1,7 +1,0 @@
-[requires]
-cli11/2.1.1
-boost/1.78.0
-gtest/1.10.0
-
-[generators]
-cmake

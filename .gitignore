@@ -17,6 +17,7 @@ javr/Makefile
 
 # CMake
 cmake-build-*/
+build/
 
 # Conan
 conan.lock

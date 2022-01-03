@@ -20,4 +20,4 @@ jobs:
         uses: turtlebrowser/get-conan@v1.0
 
       - name: Create Conan package (Build & Test)
-        run: cmake create . --build ${{github.workspace}}/build
+        run: cmake create .

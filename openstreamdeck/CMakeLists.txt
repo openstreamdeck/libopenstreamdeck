@@ -72,6 +72,9 @@ add_library(
 )
 target_include_directories(${TARGET} PUBLIC src src/model)
 
+# Boost
+target_link_libraries(${TARGET} Boost::headers)
+
 #
 # Create executable to run unit tests
 #
@@ -81,13 +84,15 @@ add_executable(
         test/internal/event/received/WillAppearEventParserTests.cpp
         test/internal/RegistrationParserTests.cpp
 )
+
+# libopenstreamdeck
 target_link_libraries(${TEST_TARGET} ${TARGET})
+
+# Boost
+target_link_libraries(${TEST_TARGET} Boost::test)
+target_link_libraries(${TEST_TARGET} Boost::unit_test_framework)
+
 add_test(
         NAME ${TEST_TARGET}
         COMMAND ${TARGET}_test
 )
-
-# Boost
-target_include_directories(${TARGET} PUBLIC ${Boost_INCLUDE_DIRS})
-target_include_directories(${TEST_TARGET} PUBLIC ${Boost_INCLUDE_DIRS})
-target_link_libraries(${TEST_TARGET} ${Boost_LIBRARIES})

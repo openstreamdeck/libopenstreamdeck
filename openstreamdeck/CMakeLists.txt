@@ -88,11 +88,6 @@ add_test(
 )
 
 # Boost
-target_include_directories(${TEST_TARGET} PUBLIC ${CONAN_INCLUDE_DIRS_BOOST})
-target_link_directories(${TEST_TARGET} PUBLIC ${CONAN_LIB_DIRS_BOOST})
-target_link_libraries(${TEST_TARGET} ${CONAN_LIBS_BOOST})
-
-# Google Test
-target_include_directories(${TEST_TARGET} PUBLIC ${CONAN_INCLUDE_DIRS_GTEST})
-target_link_directories(${TEST_TARGET} PUBLIC ${CONAN_LIB_DIRS_GTEST})
-target_link_libraries(${TEST_TARGET} ${CONAN_LIBS_GTEST})
+target_include_directories(${TARGET} PUBLIC ${Boost_INCLUDE_DIRS})
+target_include_directories(${TEST_TARGET} PUBLIC ${Boost_INCLUDE_DIRS})
+target_link_libraries(${TEST_TARGET} ${Boost_LIBRARIES})

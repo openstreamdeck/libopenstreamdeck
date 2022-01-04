@@ -10,7 +10,7 @@ class LibOpenStreamDeckConan(ConanFile):
     url = "https://github.com/openstreamdeck/libopenstreamdeck"
     description = "An open-source C++ 20 library to write plugin for the Stream Deck on Windows/Mac."
     topics = ("stream deck")
-    generators = "CMakeToolchain"
+    generators = "CMakeToolchain", "cmake_find_package"
 
     # Binary configuration
     settings = "os", "compiler", "build_type", "arch"

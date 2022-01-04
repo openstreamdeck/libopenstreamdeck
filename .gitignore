@@ -21,7 +21,7 @@ build/
 
 # Conan
 conan.lock
-conanbuildinfo.cmake
 conanbuildinfo.txt
 conaninfo.txt
+Find*.cmake
 graph_info.json

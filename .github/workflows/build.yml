@@ -24,8 +24,5 @@ jobs:
           conan profile new default --detect
           conan profile update settings.compiler.libcxx=libstdc++11 default
 
-      - name: Install dependencies
-        run: cmake install .
-
       - name: Create Conan package (Build & Test)
-        run: cmake create .
+        run: conan create . -pr:b default

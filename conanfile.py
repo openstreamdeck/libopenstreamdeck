@@ -1,6 +1,5 @@
 from conans import ConanFile
 from conan.tools.cmake import CMakeToolchain, CMake
-from conan.tools.layout import cmake_layout
 
 class LibOpenStreamDeckConan(ConanFile):
     name = "libopenstreamdeck"
@@ -27,17 +26,15 @@ class LibOpenStreamDeckConan(ConanFile):
     def requirements(self):
         self.requires("boost/1.78.0")
 
-    def layout(self):
-        cmake_layout(self)
-
     def build(self):
         cmake = CMake(self)
         cmake.configure()
         cmake.build()
 
     def package(self):
-        cmake = CMake(self)
-        cmake.install()
+        self.copy("*.h", src="openstreamdeck/src", dst="include")
+        self.copy("*.h", src="openstreamdeck/src/event", dst="include/event")
+        self.copy("*.a", src="lib", dst="lib")
 
     def package_info(self):
         self.cpp_info.libs = ["openstreamdeck"]

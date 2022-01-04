@@ -73,7 +73,7 @@ add_library(
 target_include_directories(${TARGET} PUBLIC src src/model)
 
 # Boost
-target_link_libraries(${TARGET} Boost::headers)
+target_link_libraries(${TARGET} Boost::boost)
 
 #
 # Create executable to run unit tests

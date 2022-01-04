@@ -14,6 +14,7 @@ class LibOpenStreamDeckTestConan(ConanFile):
         self.requires("boost/1.78.0")
         self.requires("libopenstreamdeck/0.1.0")
 
-   def test(self):
+    def test(self):
+       pass
 #        if not tools.cross_building(self):
 #            self.run(".%sexample" % os.sep)

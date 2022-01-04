@@ -10,7 +10,10 @@ class LibOpenStreamDeckTestConan(ConanFile):
         cmake.configure()
         cmake.build()
 
-    def test(self):
-        if not tools.cross_building(self):
-            os.chdir("bin")
-            self.run(".%sexample" % os.sep)
+    def requirements(self):
+        self.requires("boost/1.78.0")
+        self.requires("libopenstreamdeck/0.1.0")
+
+#    def test(self):
+#        if not tools.cross_building(self):
+#            self.run(".%sexample" % os.sep)

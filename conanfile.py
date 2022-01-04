@@ -32,9 +32,10 @@ class LibOpenStreamDeckConan(ConanFile):
         cmake.build()
 
     def package(self):
-        self.copy("*.h", src="openstreamdeck/src", dst="include")
-        self.copy("*.h", src="openstreamdeck/src/event", dst="include/event")
-        self.copy("*.a", src="lib", dst="lib")
+        self.copy("*.h", dst="include", src="openstreamdeck/src")
+        self.copy("*.h", dst="include/event", src="openstreamdeck/src/event")
+        self.copy("*.a", dst="lib", keep_path=False)
 
     def package_info(self):
         self.cpp_info.libs = ["openstreamdeck"]
+        self.cpp_info.include_dirs = ["include/*"]
